@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monument Search Bar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="margin: 0; background-color: #f7f7f7;">
+    <div class="search-bar" id="searchBar">
+        <div class="input-container" id="whereInput">
+            <label for="where">Where</label>
+            <input type="text" id="where" placeholder="Search for Monuments">
+        </div>
+        <div class="input-container" id="whenInput">
+            <label for="when">When</label>
+            <input type="text" id="when" placeholder="Add Date & Time">
+        </div>
+        <div class="input-container" id="whoInput">
+            <label for="who">Who</label>
+            <input type="text" id="who" placeholder="Add members">
+        </div>
+        <div class="input-container" id="withInput">
+            <label for="with">With</label>
+            <input type="text" id="with" placeholder="Get a Guide?">
+        </div>
+        <button id="bookButton" onclick="bookTickets()">Book</button>
+    </div>
+
+    <div id="mainContainer" class="container">
+        <div class="sidebar" id="sidebarContainer">
+            <h1 class="cities-title" id="citiesTitle ">Cities</h1>
+            <ul class="cities" id="citiesList ">
+                <li data-images="photo1.jpg,photo2.jpg,photo3.jpg,photo4.jpg,photo5.jpg,photo6.jpg"
+                    data-underline-width="29%">Mumbai</li>
+                <li data-images="photo4.jpg,photo5.jpg,photo6.jpg" data-underline-width="19%">Delhi</li>
+                <li data-images="photo7.jpg,photo8.jpg,photo9.jpg" data-underline-width="18%">Agra</li>
+                <li data-images="photo10.jpg,photo11.jpg,photo12.jpg" data-underline-width="23%">Kerala</li>
+                <li data-images="photo13.jpg,photo14.jpg,photo15.jpg" data-underline-width="20%">Bihar</li>
+                <li data-images="photo16.jpg,photo17.jpg,photo18.jpg" data-underline-width="39%">Tamil Nadu</li>
+            </ul>
+        </div>
+        <hr class="separator">
+        <div class="content" id="contentContainer">
+            <h1 class="monuments-title" id="monumentsTitle ">Monuments</h1>
+            <div class="monuments" id="monumentsList ">
+                <img src="photo1.jpg" alt="Monument">
+                <img src="photo2.jpg" alt="Monument">
+                <img src="photo3.jpg" alt="Monument">
+            </div>
+            <div class="load-more" id="loadMore "><b>Load more</b></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+<div class="search-bar" id="searchBar"
+    style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.8); border-radius: 10px; padding: 5px; width: 90%; max-width: 1025px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 60px auto; margin-bottom: -30px;">
+    <div class="input-container" id="whereInput"
+        style="display: flex; flex-direction: column; align-items: flex-start; margin: 0 20px; flex: 1; position: relative;">
+        <label for="where" style="margin-top: 8px; margin-left: 12px; font-size: 0.9rem; color: #333;">Where</label>
+        <input type="text" id="where" placeholder="Search for Monuments"
+            style="border: none; outline: none; width: 100%; border-radius: 25px; padding: 10px;">
+    </div>
+    <div class="input-container" id="whenInput"
+        style="display: flex; flex-direction: column; align-items: flex-start; margin: 0 20px; flex: 1; position: relative;">
+        <label for="when" style="margin-top: 8px; margin-left: 12px; font-size: 0.9rem; color: #333;">When</label>
+        <input type="text" id="when" placeholder="Add Date & Time"
+            style="border: none; outline: none; width: 100%; border-radius: 25px; padding: 10px;">
+    </div>
+    <div class="input-container" id="whoInput"
+        style="display: flex; flex-direction: column; align-items: flex-start; margin: 0 20px; flex: 1; position: relative;">
+        <label for="who" style="margin-top: 8px; margin-left: 12px; font-size: 0.9rem; color: #333;">Who</label>
+        <input type="text" id="who" placeholder="Add members"
+            style="border: none; outline: none; width: 100%; border-radius: 25px; padding: 10px;">
+    </div>
+    <div class="input-container" id="withInput"
+        style="display: flex; flex-direction: column; align-items: flex-start; margin: 0 20px; flex: 1; position: relative;">
+        <label for="with" style="margin-top: 8px; margin-left: 12px; font-size: 0.9rem; color: #333;">With</label>
+        <input type="text" id="with" placeholder="Get a Guide?"
+            style="border: none; outline: none; width: 100%; border-radius: 25px; padding: 10px;">
+    </div>
+    <button id="bookButton" onclick="bookTickets()"
+        style="border: none; outline: none; padding: 15px 45px; background-color: #d4a373; color: white; border-radius: 60px; cursor: pointer; font-size: 0.9rem; transition: background-color 0.3s ease; margin-right: 15px;">Book</button>
+</div>
+
+<div id="mainContainer" class="container"
+    style="display: none; flex-direction: row; height: 55vh; width: 54%; margin: 50px auto 0; background-color: #fff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <div class="sidebar" id="sidebarContainer"
+        style="width: 30%; background-color: #fff; padding: 10px; border-radius: 15px;">
+        <h1 class="cities-title" id="citiesTitle" style="font-size: 24px; margin-left: 25px; margin-bottom: 50px;">
+            Cities</h1>
+        <ul class="cities" id="citiesList" style="list-style: none; padding: 0; margin: 0;">
+            <li data-images="photo1.jpg,photo2.jpg,photo3.jpg,photo4.jpg,photo5.jpg,photo6.jpg"
+                data-underline-width="29%"
+                style="margin: 5px 0; cursor: pointer; font-size: 20px; margin-left: 25px; padding: 5px; position: relative;">
+                Mumbai</li>
+            <li data-images="photo4.jpg,photo5.jpg,photo6.jpg" data-underline-width="19%"
+                style="margin: 5px 0; cursor: pointer; font-size: 20px; margin-left: 25px; padding: 5px; position: relative;">
+                Delhi</li>
+            <li data-images="photo7.jpg,photo8.jpg,photo9.jpg" data-underline-width="18%"
+                style="margin: 5px 0; cursor: pointer; font-size: 20px; margin-left: 25px; padding: 5px; position: relative;">
+                Agra</li>
+            <li data-images="photo10.jpg,photo11.jpg,photo12.jpg" data-underline-width="23%"
+                style="margin: 5px 0; cursor: pointer; font-size: 20px; margin-left: 25px; padding: 5px; position: relative;">
+                Kerala</li>
+            <li data-images="photo13.jpg,photo14.jpg,photo15.jpg" data-underline-width="20%"
+                style="margin: 5px 0; cursor: pointer; font-size: 20px; margin-left: 25px; padding: 5px; position: relative;">
+                Bihar</li>
+            <li data-images="photo16.jpg,photo17.jpg,photo18.jpg" data-underline-width="39%"
+                style="margin: 5px 0; cursor: pointer; font-size: 20px; margin-left: 25px; padding: 5px; position: relative;">
+                Tamil Nadu</li>
+        </ul>
+    </div>
+    <hr class="separator" style="height: 82%; margin-top: 38px; margin-right: 20px;">
+    <div class="content" id="contentContainer" style="flex: 1; padding: 10px; display: flex; flex-direction: column;">
+        <h1 class="monuments-title" id="monumentsTitle"
+            style="font-size: 24px; text-align: center; margin-bottom: 40px; margin-top: 30px;">Monuments</h1>
+        <div class="monuments" id="monumentsList"
+            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; flex: 1;">
+            <img src="photo1.jpg" alt="Monument" style="width: 100%; border-radius: 8px; height: 150px;">
+            <img src="photo2.jpg" alt="Monument" style="width: 100%; border-radius: 8px; height: 150px;">
+            <img src="photo3.jpg" alt="Monument" style="width: 100%; border-radius: 8px; height: 150px;">
+        </div>
+        <div class="load-more" id="loadMore"
+            style="text-align: center; margin: 5px 0; cursor: pointer; color: #634823; font-size: 0.9em; margin-right: -500px;">
+            <b>Load more</b></div>
+    </div>
+</div>
